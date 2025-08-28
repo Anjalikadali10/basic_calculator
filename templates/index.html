@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basic Calculator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Basic Calculator</h1>
+        <form method="POST">
+            <input type="text" name="expression" id="display" value="{{ expression }}" autocomplete="off" required>
+            <div class="button-grid">
+                <button type="button" onclick="insert('7')">7</button>
+                <button type="button" onclick="insert('8')">8</button>
+                <button type="button" onclick="insert('9')">9</button>
+                <button type="button" onclick="insert('÷')">÷</button>
+
+                <button type="button" onclick="insert('4')">4</button>
+                <button type="button" onclick="insert('5')">5</button>
+                <button type="button" onclick="insert('6')">6</button>
+                <button type="button" onclick="insert('×')">×</button>
+
+                <button type="button" onclick="insert('1')">1</button>
+                <button type="button" onclick="insert('2')">2</button>
+                <button type="button" onclick="insert('3')">3</button>
+                <button type="button" onclick="insert('-')">−</button>
+
+                <button type="button" onclick="insert('0')">0</button>
+                <button type="button" onclick="insert('.')">.</button>
+                <button type="button" onclick="insert('+')">+</button>
+                <button type="submit">=</button>
+
+                <button type="button" onclick="clearDisplay()">C</button>
+                <button type="button" onclick="backspace()">←</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function insert(value) {
+            const input = document.getElementById("display");
+            input.value += value;
+        }
+
+        function clearDisplay() {
+            document.getElementById("display").value = "";
+        }
+
+        function backspace() {
+            const input = document.getElementById("display");
+            input.value = input.value.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
